@@ -1,0 +1,39 @@
+<ion-view class="settings-view" ng-controller="EstadosCtrl">
+  <style>
+    .item-radio input:checked + .radio-content .item-content {
+      background: 0;
+    }
+  </style>
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Estados</span>
+  </ion-nav-title>
+  <ion-content>
+
+    <ion-list>
+        <ion-item ng-repeat="estado in estados">
+          <div class="row" style="margin: 1% 0 0 0%;">
+            <div class="col-50">
+             <b> <h2 style="font-weight: bold;">{{ estado.title }}</h2></b>
+            </div>
+
+            <div class="col-50" style="float: right;">
+              <div class="buttons" style="float: right;">
+                <a class="button" href="#/app/estados/{{ estado.id }}/stats">
+                  <i class="icon ion-pie-graph"></i>
+                </a>
+                <a class="button" href="#/app/estados/{{ estado.id }}/municipios">
+                  <i class="icon ion-map"></i>
+                </a>
+              </div>
+              
+            </div>
+          </div>
+            
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

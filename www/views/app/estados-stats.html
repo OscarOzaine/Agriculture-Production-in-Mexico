@@ -1,0 +1,54 @@
+<ion-view class="settings-view" ng-controller="EstadosStatsCtrl">
+  <style>
+    .item-radio input:checked + .radio-content .item-content {
+      background: 0;
+    }
+  </style>
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <!-- <span>Estado Stats</span> -->
+  </ion-nav-title>
+  <ion-content>
+
+    <div class="card">
+        <div class="item item-divider">
+            Produccion en {{ state_title }}
+        </div>
+        <div class="item item-text-wrap">
+            <canvas 
+              id="doughnut" 
+              class="chart chart-doughnut chart-xs" 
+              chart-data="graph.data" 
+              chart-labels="graph.labels"
+              chart-options="graph.options"
+              height="200">
+            </canvas>
+        </div>
+    </div>
+
+    <ion-list>
+        <ion-item ng-repeat="cultivo in cultivos">
+          <div class="row">
+            <div class="col-50">
+              <h2>{{ cultivo.title }}</h2>
+              <br>
+              <h4>{{ cultivo.sum_valor_productivo }} %</h4>
+            </div>
+
+            <div class="col-50" style="float: right;">
+              <div class="buttons" style="float: right;">
+                <a class="button" href="#/app/estados/{{ estadoId }}/stats/{{ cultivo.id }}">
+                  <i class="icon ion-pie-graph"></i>
+                </a>
+              </div>
+              
+            </div>
+          </div>
+            
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

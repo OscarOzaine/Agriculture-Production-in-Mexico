@@ -1,0 +1,29 @@
+<ion-view class="settings-view" ng-controller="EstadosMunicipiosCtrl">
+  <style>
+    .item-radio input:checked + .radio-content .item-content {
+      background: 0;
+    }
+  </style>
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Municipios</span>
+  </ion-nav-title>
+  <ion-content>
+
+    <ion-list>
+        <ion-item
+          ng-repeat="municipio in municipios"
+          style="width: 100%;"
+          href="#/app/estados/{{ municipio.estado }}/municipios/{{ municipio.id }}">
+
+          <!-- value="{{ integration.integration_token }}"
+            style="border: 0;"
+            ng-checked="{{ $parent.mainIntegrationToken }}" -->
+          {{ municipio.title }}
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

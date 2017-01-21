@@ -1,0 +1,80 @@
+<ion-view class="settings-view" ng-controller="CultivosStatsCtrl">
+  <style>
+    .item-radio input:checked + .radio-content .item-content {
+      background: 0;
+    }
+  </style>
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <!-- <span>Cultivos</span> -->
+  </ion-nav-title>
+  <ion-content>
+    <div class="card">
+        <div class="item item-divider">
+            Estados mas productivos
+        </div>
+        <div class="item item-text-wrap">
+            <canvas 
+              id="doughnut" 
+              class="chart chart-doughnut chart-xs" 
+              chart-data="graph.state_data" 
+              chart-labels="graph.state_labels"
+              chart-options="graph.state_options"
+              height="200">
+            </canvas>
+        </div>
+    </div>
+    <ion-list>
+
+        <ion-item
+          ng-repeat="state in cultivo.states"
+          style="width: 100%;">
+          <div class="row">
+            <div class="col-50">
+              <h2>{{ state.state_title }}</h2>
+              <br>
+              <h4>{{ state.sum_valor_productivo }} %</h4>
+            </div>
+
+            <div class="col-50" style="float: right;">
+              <div class="buttons" style="float: right;">
+                <a class="button" href="#/app/estados/{{ state.state_id }}/stats/{{ state.crop_id }}">
+                  <i class="icon ion-pie-graph"></i>
+                </a>
+              </div>
+              
+            </div>
+          </div>
+        </ion-item>
+
+    </ion-list>
+    <!--
+    <div class="card">
+        <div class="item item-divider">
+            Municipios mas productivos
+        </div>
+        <div class="item item-text-wrap">
+            <canvas 
+              id="doughnut" 
+              class="chart chart-doughnut chart-xs" 
+              chart-data="graph.city_data" 
+              chart-labels="graph.city_labels"
+              chart-options="graph.city_options"
+              height="200">
+            </canvas>
+        </div>
+    </div>
+    <ion-list>
+        <ion-item
+          ng-repeat="city in cultivo.cities"
+          style="width: 100%;">
+          
+          {{ city.city_title }}
+        </ion-item>
+
+    </ion-list>
+    -->
+  </ion-content>
+</ion-view>
